@@ -10,22 +10,20 @@ function Answer(props) {
     quizzEnd
   } = props
 
-  let styles = {}
-  if(quizzEnd){
-    styles = {
-      color: isSelected && correct ? "green" : isSelected && !correct ? "red" : answer === goodAnswer ? "green" : "black"
-    }
-  } else {
-    styles = {
-        color: isSelected ? "blue" : "black"
-      }
+  let classAnswer = ''
 
+  if (quizzEnd) {
+
+    classAnswer = isSelected && correct ? 'answer ansCorSel' : isSelected && !correct ? 'answer ansIncSel' : answer === goodAnswer ? 'answer ansCorSel' : 'answer'
+
+  } else {
+    classAnswer = isSelected ? 'answer ansSelect' : 'answer'
   }
-  
+
 
 
   return (
-    <div className='answer' onClick={handleClick} style={styles}>{answer}</div>
+    <div className={classAnswer} onClick={handleClick}>{answer}</div>
   )
 }
 

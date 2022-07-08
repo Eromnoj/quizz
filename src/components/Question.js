@@ -21,7 +21,7 @@ function Question(props) {
     handleClick={() => handleClick(id, answer.id)} />)
 
   return (
-    <div>
+    <div className='questionList'>
         <div className='question'>{question}</div>
         <div className='answers'>{displayAnswers}</div>
     </div>

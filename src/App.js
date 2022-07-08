@@ -49,6 +49,10 @@ function App() {
   }
 
   const startAgain = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  })
     setResult(0)
     SetShowResult(false)
     setStartAgainTest(prevState => !prevState)
@@ -102,20 +106,21 @@ function App() {
             {dispatchQuestions}
           </div>
           <div className='validate'>
-            {showResult ?
-            
-            <div>
-            <p>You scored a result {result} of {newQuizz.length}</p>
-            <button onClick={startAgain}>New Quizz</button>
+            {showResult ? 
+            <div className='result'>
+            <p>You scored  {result} / {newQuizz.length} correct answers</p>
+            <button className='button' onClick={startAgain}>New Quizz</button>
             </div> :
-            <button className='validateButton' onClick={valideAnswer}>Validate Answers</button>
+            <button className='button' onClick={valideAnswer}>Validate Answers</button>
             }
             
           </div>
         </div> :
         <div className='startpage'>
-          <h1>Welcome to the Quizz</h1>
-          <button onClick={startQuizz}>Start Quizz</button>
+          <h1>Easy Quizzy</h1>
+          <p>Powered with React</p>
+          <p>Using API from : <a href='https://the-trivia-api.com/'>The trivia API</a> </p>
+          <button className='button' onClick={startQuizz}>Start Quizz</button>
         </div>}
     </div>
   );

@@ -1,0 +1,120 @@
+@use 'variables'
+
+*
+    box-sizing: border-box
+
+body
+    background-color: variables.$bodyBackground
+    display: flex
+    min-height: 100vh
+    justify-content: center
+    align-items: center
+    font-family: Palanquin, Arial, Helvetica, sans-serif
+    font-size: 25px
+    color: variables.$fontColor
+
+.App
+    width: 800px
+    min-height: 800px
+    margin: 50px
+    background-color: variables.$quizzBackground
+    padding: 20px
+    border-radius: 20px
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+    align-items: center
+
+.startpage
+    text-align: center
+    font-weight: 700
+
+.startpage > h1
+    filter: drop-shadow(0 0 0.1em #0acdff)
+
+.startpage a
+    text-decoration: none
+    color: variables.$fontColor
+    filter: drop-shadow(0 0 0.2em #ca37aa)
+    transition: filter 0.5s
+    &:hover
+        filter: drop-shadow(0 0 0.4em #ca37aa)
+
+.button
+    width: variables.$buttonWidth
+    height: 70px
+    border-radius: 35px
+    border: none
+    font-family: Palanquin, Arial, Helvetica, sans-serif
+    font-size: 1.2em
+    font-weight: 700
+    color: #6e295f
+    background-color: variables.$fontColor
+    filter: drop-shadow(0 0 1.2em #6e295f)
+    cursor: pointer
+    transition: 0.4s
+    margin-top: 30px
+    &:hover
+        width: variables.$buttonWidth+30px
+    &:active
+        color: variables.$fontColor
+        background-color: #6e295f
+        filter: drop-shadow(0 0 1.2em #6e295f)
+
+.quizz
+    display: flex
+    flex-direction: column
+    // justify-content: center
+    align-items: center
+
+.question
+    margin-top: 20px 
+    &::before
+        content: '=>'
+        filter: drop-shadow(0 0 0.2em #0acdff)
+        margin: 10px
+        margin-left: 20px
+        font-size: 1.5em
+
+.answers
+    display: flex
+    flex-direction: column
+    align-items: center
+    font-size: 0.8em
+    width: 80%
+    margin: auto
+    background: variables.$answerBackground
+    padding: 20px
+    margin-top: 10px
+    font-size: 0.7em
+
+.answer
+    cursor: pointer
+    margin: 10px
+    border-radius: 50px
+    width: 90%
+    padding: 5px
+    text-align: center
+    background-color: variables.$fontColor
+    color: variables.$quizzBackground
+    transition: 0.3s
+
+.ansSelect
+    filter: drop-shadow(0 0 1em #2a0d6e)
+    background-color: #502ca5
+    color: variables.$fontColor
+
+.ansCorSel
+    filter: drop-shadow(0 0 1em #179228)
+    background-color: #1a7026
+    color: variables.$fontColor
+
+.ansIncSel
+    background-color: #5e1c1cf6
+    color: variables.$fontColor
+
+.result
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
