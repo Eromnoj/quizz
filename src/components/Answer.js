@@ -3,17 +3,29 @@ import React from 'react'
 function Answer(props) {
   const {
     answer,
-    // goodAnswer,
     isSelected,
-    handleClick
+    handleClick,
+    correct,
+    goodAnswer,
+    quizzEnd
   } = props
 
-  const styles = {
-    color: isSelected ? "green" : "blue"
+  let styles = {}
+  if(quizzEnd){
+    styles = {
+      color: isSelected && correct ? "green" : isSelected && !correct ? "red" : answer === goodAnswer ? "green" : "black"
+    }
+  } else {
+    styles = {
+        color: isSelected ? "blue" : "black"
+      }
+
   }
+  
+
 
   return (
-    <div onClick={handleClick} style={styles}>{answer}</div>
+    <div className='answer' onClick={handleClick} style={styles}>{answer}</div>
   )
 }
 

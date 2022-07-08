@@ -7,14 +7,19 @@ function Question(props) {
       question, 
       answers, 
       goodAnswer, 
+      correct,
+      quizzEnd,
       handleClick} = props
 
     const displayAnswers = answers.map(answer => <Answer 
     key={answer.id}
     answer={answer.answer}
     goodAnswer={goodAnswer}
+    correct={correct}
     isSelected={answer.isSelected}
+    quizzEnd={quizzEnd}
     handleClick={() => handleClick(id, answer.id)} />)
+
   return (
     <div>
         <div className='question'>{question}</div>
