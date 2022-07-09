@@ -4,16 +4,13 @@ import Answer from './Answer'
 
 function Question(props) {
     const {
-      question,
-      quizzEnd,
-      handleClick} = props
+      question} = props
 
     const displayAnswers = question.allAnswers.map(answer => <Answer 
     key={answer.id}
     answer={answer}
     question={question}
-    quizzEnd={quizzEnd}
-    handleClick={handleClick} />)
+     />)
 
   return (
     <div className='questionList'>

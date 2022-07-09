@@ -1,12 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux/es/hooks/useDispatch'
+import { useSelector } from 'react-redux'
+import { selectAnswer } from '../redux'
 
 function Answer(props) {
   const {
     answer,
-    question,
-    quizzEnd,
-    handleClick
+    question
   } = props
+
+  const quizzEnd = useSelector(state => state.endQuizz)
+
+  const payLoadObject = {
+    questId: question.id,
+    ansId: answer.id
+  }
+
+  const dispatch = useDispatch()
 
   let classAnswer = ''
 
@@ -21,7 +31,7 @@ function Answer(props) {
 
 
   return (
-    <div className={classAnswer} onClick={() => handleClick(question.id, answer.id)}>{answer.answer}</div>
+    <div className={classAnswer} onClick={() => dispatch(selectAnswer(payLoadObject))}>{answer.answer}</div>
   )
 }
 
