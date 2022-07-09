@@ -3,26 +3,21 @@ import Answer from './Answer'
 // import {nanoid} from 'nanoid'
 
 function Question(props) {
-    const {id, 
-      question, 
-      answers, 
-      goodAnswer, 
-      correct,
+    const {
+      question,
       quizzEnd,
       handleClick} = props
 
-    const displayAnswers = answers.map(answer => <Answer 
+    const displayAnswers = question.allAnswers.map(answer => <Answer 
     key={answer.id}
-    answer={answer.answer}
-    goodAnswer={goodAnswer}
-    correct={correct}
-    isSelected={answer.isSelected}
+    answer={answer}
+    question={question}
     quizzEnd={quizzEnd}
-    handleClick={() => handleClick(id, answer.id)} />)
+    handleClick={handleClick} />)
 
   return (
     <div className='questionList'>
-        <div className='question'>{question}</div>
+        <div className='question'>{question.question}</div>
         <div className='answers'>{displayAnswers}</div>
     </div>
   )
