@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.sass';
 import Question from './components/Question';
-import { useSelector } from 'react-redux/es/exports';
-import { useDispatch } from 'react-redux/es/hooks/useDispatch';
+import { useSelector, useDispatch } from 'react-redux';
 import { createNewQuizz, validAnswer, toggleEndQuizz } from './redux';
 
 
